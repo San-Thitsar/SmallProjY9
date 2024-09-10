@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2>Anime Array</h2>
+        <button class="btn btn-primary" onclick="sortabc()">Sort Alphabetically</button>
+        <button class="btn btn-primary" onclick="sortno()">Sort Numerically</button>
+        <div class="container mt-5">
+            <button class="btn btn-primary m-2" onclick="saThitsar()">San Thit Sar</button>
+            <button class="btn btn-warning m-2" onclick="eainSimoe()">Eain Si Moe</button>
+            <button class="btn btn-danger m-2" onclick="zarNilin()">Zar Ni Lin</button>
+        </div>
+        <p id="demo1"></p>  
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p ip="demo4"></p>
+    </div>
+
+    <script>
+
+        const animerelease = [
+            {name: "Re-Main", year: 2021}, 
+            {name: "Bluelock", year: 2022},
+            {name: "Haikyuu", year: 2014},
+            {name: "Kuroko Basket", year: 2012},
+            {name: "Free", year: 2013}
+        ];
+
+        const anime = [
+            "One piece",
+            "Naruto",
+            "Bleach",
+            "Dragon Ball Z",
+            "Attack on Titan"
+        ];
+
+        const anime2 = ["Jujutsu Kaisen", "One Punch Man", "Demon Slayer",]
+        const animeName = anime.concat(anime2);
+        animeName.sort();
+
+        let text ="<ol> Anime Array";
+            for(let i=0; i<animeName.length; i++){
+                text += "<li>"+ animeName[i] + "</li>";
+            }
+
+            text += "</ol>";
+
+        function sortabc(){
+            anime.sort(function(a, b){return a - b});
+            document.getElementById("demo1").innerHTML = text;
+        }
+
+
+        /*let text2 = "<ul>AnimeYear Array";
+            for(let i=0; i<animerelease.length; i++){
+                text += "<li>"+ animerelease[i] + "</li>"
+            }
+            text += "</ul>"*/
+
+        function sortno(){
+            document.getElementById("demo2").innerHTML = 
+            animerelease[0].name + animerelease[0].year + "<br>" + 
+            animerelease[1].name + animerelease [1].year + "<br>" + 
+            animerelease[2].name + animerelease [2].year + "<br>" +
+            animerelease[3].name + animerelease [3].year + "<br>" + 
+            animerelease[4].name + animerelease [4].year;
+
+            animerelease.sort(function(a, b){return a.year - b.year;});
+            document.getElementById("demo2").innerHTML = text2;
+        }
+        
+        const animep_p = [];
+          animep_p[0] = " Attack on Titan";
+          animep_p[1] = " Bleach";
+          animep_p[2] = " Demon Slayer";
+          animep_p[3] = " Dragon Ball Z";
+          animep_p[4] = " Jujutsu Kaisen";
+          document.getElementById("demo3").innerHTML = animep_p;
+          animep_p.push(" Chainsaw Man", "Tokyo Revengers");
+          document.getElementById("demo4").innerHTML = animep_p;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
